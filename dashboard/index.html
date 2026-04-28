@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vibe Ports</title>
+    <meta
+      name="description"
+      content="Static local port dashboard for vibe coding and AI coding agents."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="shell hero">
+      <div>
+        <p class="eyebrow">Vibe Ports</p>
+        <h1>Local port map for vibe coding agents.</h1>
+        <p class="lede">
+          A static dashboard generated from a JSON registry. Agents use portctl to reserve ports;
+          humans use this page to see the local service map at a glance.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <span>Registry</span>
+        <strong id="registry-count">0 entries</strong>
+        <small id="registry-updated">Loading...</small>
+      </aside>
+    </header>
+
+    <main class="shell stack">
+      <section class="metrics" aria-label="Port registry metrics">
+        <article>
+          <span>Entries</span>
+          <strong id="metric-entries">0</strong>
+        </article>
+        <article>
+          <span>Ranges</span>
+          <strong id="metric-ranges">0</strong>
+        </article>
+        <article>
+          <span>Reserved</span>
+          <strong id="metric-reserved">0</strong>
+        </article>
+        <article>
+          <span>Listening</span>
+          <strong id="metric-listening">0</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Registry</p>
+            <h2>Ports</h2>
+          </div>
+          <code>ports.json</code>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Port</th>
+                <th>Status</th>
+                <th>Project</th>
+                <th>Service</th>
+                <th>Type</th>
+                <th>Runtime</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody id="ports-body"></tbody>
+          </table>
+        </div>
+        <p class="empty" id="ports-empty" hidden>No ports registered yet.</p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Ranges</p>
+            <h2>Allocation Rules</h2>
+          </div>
+        </div>
+        <div class="ranges" id="ranges"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

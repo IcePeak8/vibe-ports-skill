@@ -1,0 +1,30 @@
+{
+  "name": "vibe-ports",
+  "version": "0.1.0",
+  "description": "Local port registry and static dashboard for vibe coding agents.",
+  "type": "module",
+  "bin": {
+    "portctl": "./src/portctl.mjs",
+    "vibe-ports": "./src/portctl.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/portctl.mjs && node --check dashboard/app.js && node --check scripts/smoke-test.mjs",
+    "test": "node scripts/smoke-test.mjs",
+    "ports": "node src/portctl.mjs",
+    "demo:init": "node src/portctl.mjs init --file ./examples/ports.demo.json --examples --force",
+    "demo:export": "node src/portctl.mjs export --file ./examples/ports.demo.json --out ./site"
+  },
+  "keywords": [
+    "vibe-coding",
+    "ports",
+    "localhost",
+    "codex",
+    "ai-agent",
+    "developer-tools"
+  ],
+  "author": "IcePeak8",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

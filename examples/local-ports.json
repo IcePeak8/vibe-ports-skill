@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-28",
+  "defaults": {
+    "host": "127.0.0.1",
+    "primaryPlatform": "linux",
+    "supportedPlatforms": ["linux", "darwin"],
+    "registryFile": "ports.json"
+  },
+  "platforms": [
+    {
+      "id": "linux",
+      "label": "Linux",
+      "primary": true,
+      "listenerCommand": "ss -H -ltnp",
+      "notes": "Primary target for local service checks."
+    },
+    {
+      "id": "darwin",
+      "label": "macOS",
+      "primary": false,
+      "listenerCommand": "lsof -nP -iTCP:<port> -sTCP:LISTEN",
+      "notes": "Supported fallback for local Mac development."
+    }
+  ],
+  "ranges": [
+    {
+      "id": "frontend",
+      "label": "Frontend Apps",
+      "start": 3000,
+      "end": 3099,
+      "description": "Next.js, Vite, Astro, docs preview, and other browser apps."
+    },
+    {
+      "id": "api",
+      "label": "API / BFF",
+      "start": 3100,
+      "end": 3199,
+      "description": "HTTP APIs, BFF services, local model adapters, and webhook receivers."
+    },
+    {
+      "id": "worker",
+      "label": "Workers",
+      "start": 3200,
+      "end": 3299,
+      "description": "Queue workers, automation runners, crawlers, and background task UIs."
+    },
+    {
+      "id": "admin",
+      "label": "Admin / Docs",
+      "start": 3300,
+      "end": 3399,
+      "description": "Dashboards, docs, inspector panels, and admin consoles."
+    },
+    {
+      "id": "webhook",
+      "label": "Webhook Tests",
+      "start": 4000,
+      "end": 4099,
+      "description": "Local callback endpoints, tunnels, OAuth redirects, and integration tests."
+    },
+    {
+      "id": "experiment",
+      "label": "Experiments",
+      "start": 5000,
+      "end": 5999,
+      "description": "Disposable prototypes, demos, and temporary research apps."
+    },
+    {
+      "id": "database",
+      "label": "Local Datastores",
+      "start": 5400,
+      "end": 6499,
+      "description": "Postgres, Redis, vector stores, and datastore dashboards."
+    },
+    {
+      "id": "ai-gateway",
+      "label": "AI Gateways",
+      "start": 18700,
+      "end": 18799,
+      "description": "Local AI gateway services and agent control planes."
+    }
+  ],
+  "entries": []
+}
